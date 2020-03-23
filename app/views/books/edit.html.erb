@@ -1,0 +1,53 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+<h2>Editing Book</h2>
+
+<% if @book.errors.any? %>
+	<h3><%= @book.errors.count %> error prohibited this obj from being saved:</h3>
+	<ul>
+		<% @book.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for(@book) do |f| %>
+<p class="row">
+<%= f.label :title, "Title" %><br>
+<%= f.text_field :title, class: "col-md-12 book_title" %>
+</p>
+<p class="row">
+<%= f.label :body,"Body" %><br>
+<%= f.text_area :body, class: "col-md-12 book_title" %>
+</p>
+<p class="row">
+<%= f.submit "Update Book", class: "btn btn-block btn-primary" %>
+</p>
+<% end %>
+</div>
+<div class="col-md-3"></div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<%= link_to "Show",book_path(@book.id) %>
+<span> | </span>
+<%= link_to "Back",books_path %>
+</div>
+</div>
+</div>
+</div>
+
+<footer>
+	<div class="container">
+		<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6"></div>
+		<div class="col-md-3"><p>CopyRight Infratop.inc</p></div>
+	</div>
+</div>
+</footer>
