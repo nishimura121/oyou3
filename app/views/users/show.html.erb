@@ -28,7 +28,7 @@
           </tbody>
         </table>
 
-        <p><%= link_to "",edit_user_path(current_user.id) ,class: "btn btn-block btn-default glyphicon glyphicon-wrench edit_user_#{current_user.id}" %></p>
+        <p><%= link_to "",edit_user_path(@user) ,class: "btn btn-block btn-default glyphicon glyphicon-wrench" %></p>
 
         <h2>New book</h2>
 
@@ -71,8 +71,8 @@
           <% @books.each do |books| %>
             <tbody>
               <tr>
-                <td><%= attachment_image_tag books.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg"  %></td>
-                <td> <%= link_to books.title,book_path(books.id) %> </td>
+                <td><%= attachment_image_tag books.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", style: "width: 50px; height: 50px;"  %></td>
+                <td> <%= link_to books.title,book_path(books) %> </td>
                 <td> <%= books.body %> </td>
               </tr>
           </tbody>
